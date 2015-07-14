@@ -20,7 +20,7 @@ if [ -f "$1" ]; then
     LENGTH=$(ls -l "$FILE" | awk '{print $5}')
 	PODCASTRSS="${DIR}/podcast.rss"
 	DURATION=""
-	
+	ALBUM="$TITLE"
     # GET INFO USING mplayer # http://stackoverflow.com/a/498138/1919382
    mplayer -vo null -ao null -frames 0 -identify -noautosub "$FILE" | cat > "$FILEINFO"
     if [ 0 != "$?" ]; then 
@@ -83,7 +83,7 @@ if [ -f "$1" ]; then
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 <channel>
-<title>Capital</title>
+<title>"$TITLE"</title>
 <link>"$LINK"</link>
 <language>en-us</language>
 <copyright>"$COPYRIGHT"</copyright>
@@ -95,16 +95,16 @@ if [ -f "$1" ]; then
 <itunes:name>"$OWNERNAME"</itunes:name>
 <itunes:email>"$OWNEREMAIL"</itunes:email>
 </itunes:owner>
-<itunes:image href=\""$IMGURL"\" />
+<itunes:image href="$IMGURL" />
 <!-- http://validator.w3.org/feed/docs/error/InvalidItunesCategory.html -->
-<itunes:category text=\""$CATEGORY"\" />
+<itunes:category text="$CATEGORY" />
 
 <!-- insert new episode here -->
 
 </channel>
 </rss>
 EOF
-	else
+	fi
 	
 	# <item>
 	# <title>Command Authority</title>
@@ -132,7 +132,7 @@ EOF
     </item>')
     
 	# add line to bottom of $PODCASTRSS feed: <!-- insert new episode here -->
-	cp $PODCASTRSS $PODCASTRSS.backup
+	cp "$PODCASTRSS" ."$PODCASTRSS".backup
 	cat $PODCASTRSS | grep -B 999999 '<!-- insert new episode here -->$' | ghead -n -1 > podcast.tmp.rss
 	echo "$ITEM" >> podcast.tmp.rss
 	echo '<!-- insert new episode here -->
@@ -142,7 +142,8 @@ EOF
 	echo "Added:"
 	tail -n 15 $PODCASTRSS
 	
-	fi
 else
     echo "Usage $(basename $0) local.mp3 <link.mp3>"
+    echo '... or ...'
+    echo ' for i in $(ls *.mp3);do ./podcastChapter.sh "$i"; done'
 fi
