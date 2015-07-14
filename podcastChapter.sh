@@ -112,7 +112,7 @@ EOF
 	# <itunes:subtitle>Tom Clancy - Command Authority - 2013</itunes:subtitle>
 	# <itunes:summary>There’s a new strong man in Russia but his rise to power is based on a dark secret hidden decades in the past. The solution to that mystery lies with a most unexpected source—President Jack Ryan.</itunes:summary>
 	# <itunes:image href="https://www.dropbox.com/s/ci4s6kd9r9mjax3/Command%20Authority.jpg?dl=1" />
-	# <enclosure url="https://dl.dropbox.com/s/enum4zq6l9orooo/Command%20Authority.mp3?dl=1" length="515416171" type="audio/mpeg" />
+	# <enclosure url="https://dl.dropbox.com/s/etcetc.mp3?dl=1" length="534996171" type="audio/mpeg" />
 	# <guid>https://dl.dropbox.com/s/enum4zq6l9orooo/Command%20Authority.mp3?dl=1</guid>
 	# <pubDate>Sat, 04 Jan 14 18:47:12 +0100</pubDate>
 	# <itunes:duration>64418</itunes:duration>
