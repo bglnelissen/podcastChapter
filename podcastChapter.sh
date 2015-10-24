@@ -18,9 +18,9 @@ if [ -f "$1" ]; then
     FILEINFO="${DIR}/${NAME}.info.txt"
     DATE=$(LANG=en_US.UTF-8 date +"%a, %d %b %y %H:%M:%S %z") # OSX fix
     LENGTH=$(ls -l "$FILE" | awk '{print $5}')
-	PODCASTRSS="${DIR}/podcast.rss"
-	DURATION=""
-	ALBUM="$TITLE"
+    PODCASTRSS="${DIR}/podcast.rss"
+    DURATION=""
+    ALBUM="$TITLE"
     # GET INFO USING mplayer # http://stackoverflow.com/a/498138/1919382
    mplayer -vo null -ao null -frames 0 -identify -noautosub "$FILE" | cat > "$FILEINFO"
     if [ 0 != "$?" ]; then 
@@ -59,21 +59,8 @@ if [ -f "$1" ]; then
        ;;
     esac
     
-    # GET URL INFORMATION
-    URLREGEX='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
-    if [[ $2 =~ $URLREGEX ]];then
-      # check if url is basic dropbox page
-      if [[ "" != $(echo "$2" | grep "https://www.dropbox.com") ]]; then 
-        # dropbox link found, recode it to download link
-        URL=$(echo $(echo "$2" | sed 's/https\:\/\/www/https\:\/\/dl/')?dl=1)
-      else
-        # no dropbox link found, lets use it as a normal link
-        URL="$2"
-      fi
-    else
-      echo "No URL found, using local file."
-      URL="$1"
-    fi
+    # Create URL using SETTINGS file
+    URL="$SERVERURL"/"$FILE"
 
 	# CREATE RSS OUTPUT
 	# First check if mean rss file exists
