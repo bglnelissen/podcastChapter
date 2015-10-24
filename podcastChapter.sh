@@ -143,7 +143,8 @@ EOF
 	tail -n 15 $PODCASTRSS
 	
 else
-    echo "Usage $(basename $0) local.mp3 <link.mp3>"
-    echo '... or ...'
-    echo ' for i in $(ls *.mp3);do ./podcastChapter.sh "$i"; done'
+    echo "Usage:"
+    echo "    $(basename $0) local.mp3 <link.mp3>"
+    echo "or ..."
+    echo "    find . -name '*.mp3' -exec ./podcastChapter.sh {} \;"
 fi
