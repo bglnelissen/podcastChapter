@@ -15,7 +15,7 @@ SUMMARY="The second book by former Navy SEAL Mark Owen, following his multimilli
 SERVERURL="http://192.168.2.100:8080/audiobooks/No_Hero"
 
 # link to cover image.  iTunes expects high def, like: convert input.jpg -gravity center -background white -resize 1400x1400 -extent 1400x1400 cover.jpg
-IMGURL="$SERVERURL""cover.jpg"
+IMGURL="$SERVERURL"/"cover.jpg"
 
 # category if story, see https://rss.itunes.apple.com for categories
 CATEGORY="Biography & Memoir"
