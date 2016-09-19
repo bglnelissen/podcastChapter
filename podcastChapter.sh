@@ -134,5 +134,6 @@ else
     echo "Usage:"
     echo "    $(basename $0) local.mp3 <link.mp3>"
     echo "or ..."
-    echo "    find . -name '*.mp3' -exec ./podcastChapter.sh {} \;"
+    echo "    find . -iname '*.mp3' -exec ./podcastChapter.sh {} \;"
+    echo "    (order of results will determine the order of the rss feed.)"
 fi
