@@ -129,7 +129,7 @@ EOF
 	mv podcast.tmp.rss $PODCASTRSS
 	echo "Added:"
 	tail -n 15 $PODCASTRSS
-	
+	sleep 1 # added 1 second to get the timestamps at least 1 sec different the the podcasts appear in order
 else
     echo "Usage:"
     echo "    $(basename $0) local.mp3 <link.mp3>"
