@@ -13,13 +13,13 @@ if [ -f "$1" ]; then
     # SET variables
     FILE="$1"
     EXT="${FILE##*.}"
-    NAME=$(basename "${FILE%.*}" | sed 's/_/\ /g')
     DIR=$(dirname "$1")
     DIRROOT=$(dirname "$0")
+    NAME=$(basename "${FILE%.*}" | sed 's/_/\ /g')
     FILEINFO="${DIR}/${NAME}.info.txt"
     DATE=$(LANG=en_US.UTF-8 date +"%a, %d %b %y %H:%M:%S %z") # OSX fix
     LENGTH=$(ls -l "$FILE" | awk '{print $5}')
-    PODCASTRSS="${DIRROOT}/podcast.rss"
+    PODCASTRSS="${DIRROOT}/${RSSNAME}"
     DURATION=""
     ALBUM="$TITLE"
     # GET INFO USING mplayer # http://stackoverflow.com/a/498138/1919382
@@ -112,7 +112,7 @@ EOF
     <title>'$NAME'</title>
     <itunes:author>'$ARTIST'</itunes:author>
     <itunes:subtitle>'$ALBUM'</itunes:subtitle>
-    <itunes:summary>'$SUMMARY'</itunes:summary>
+    <itunes:summary>'$FILE - $SUMMARY'</itunes:summary>
     <enclosure url="'$URL'" length="'$LENGTH'" type="'$TYPE'" />
     <guid>'$URL'</guid>
     <pubDate>'$DATE'</pubDate>

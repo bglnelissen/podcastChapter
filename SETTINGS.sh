@@ -16,6 +16,9 @@ But an investigator is murdered for getting too close to the truth, and Haller q
 # server url
 SERVERURL="http://guu.st/audiobooks/TheLincolnLawyer"
 
+# RSS filename
+RSSNAME="audio.rss"
+
 # link to cover image.  iTunes expects high def, like:
 # convert input.jpg -gravity center -background white -resize 1400x1400 -extent 1400x1400 cover.jpg
 # or with a bit of grain:
