@@ -30,6 +30,6 @@ CATEGORY="Mysteries & Thrillers"
 
 # miscellaneous
 LINK="http://guu.st/audiobooks"
-COPYRIGHT="&#x2117; &amp; &#xA9; 2000-2014 CousinCocaine"
-OWNERNAME="CousinCocaine"
-OWNEREMAIL="CousinCocaine@medicode.nl"
+COPYRIGHT="&#x2117; &amp; &#xA9; 2000-2017 B. Nelissen"
+OWNERNAME="B. Nelissen"
+OWNEREMAIL="bas@guu.st"
